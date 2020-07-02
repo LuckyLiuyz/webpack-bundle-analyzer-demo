@@ -1,0 +1,47 @@
+{
+	"name": "webpack-multi-entry",
+	"version": "0.1.0",
+	"main": "index.js",
+	"author": "liuyz",
+	"license": "MIT",
+	"scripts": {
+		"start": "cross-env node --max_old_space_size=8192 node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors --config ./webpack.config.js --env.mode=development",
+		"build": "cross-env analyz=false webpack --config ./webpack.config.js --env development",
+		"analyz": "cross-env analyz=true webpack --config ./webpack.config.js --env development"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.10.4",
+		"@babel/preset-env": "^7.10.4",
+		"autoprefixer": "^9.8.4",
+		"babel-core": "^6.24.1",
+		"babel-loader": "^7.1.5",
+		"babel-plugin-import": "^1.12.0",
+		"babel-plugin-import-bee": "^1.0.2",
+		"babel-plugin-jsx-control-statements": "^4.0.0",
+		"babel-plugin-transform-decorators-legacy": "^1.3.5",
+		"babel-polyfill": "^6.26.0",
+		"babel-preset-env": "^1.6.1",
+		"babel-preset-react": "^6.24.1",
+		"babel-preset-stage-2": "^6.24.1",
+		"clean-webpack-plugin": "^3.0.0",
+		"css-loader": "^3.5.3",
+		"echarts": "^4.8.0",
+		"html-webpack-plugin": "^4.3.0",
+		"less-loader": "^6.1.3",
+		"postcss-loader": "^3.0.0",
+		"style-loader": "^1.2.1",
+		"webpack": "^4.43.0",
+		"webpack-bundle-analyzer": "^3.8.0",
+		"webpack-cli": "^3.3.12",
+		"webpack-dev-server": "^3.10.3",
+		"webpack-merge": "^4.2.2"
+	},
+	"dependencies": {
+		"cross-env": "^7.0.2",
+		"lodash": "^4.17.15",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"save": "^2.4.0",
+		"save-dev": "0.0.1-security"
+	}
+}
