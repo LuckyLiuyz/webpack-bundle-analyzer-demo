@@ -1,13 +1,13 @@
 {
-	"name": "webpack-multi-entry",
+	"name": "webpack-bundle-analyzer-demo",
 	"version": "0.1.0",
 	"main": "index.js",
 	"author": "liuyz",
 	"license": "MIT",
 	"scripts": {
-		"start": "cross-env node --max_old_space_size=8192 node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors --config ./webpack.config.js --env.mode=development",
-		"build": "cross-env analyz=false webpack --config ./webpack.config.js --env development",
-		"analyz": "cross-env analyz=true webpack --config ./webpack.config.js --env development"
+		"start": "cross-env node node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors --config ./webpack.config.js --env.mode=development",
+		"build": "cross-env analyz=false webpack --config ./webpack.config.js --env.mode development",
+		"analyz": "cross-env analyz=true webpack --config ./webpack.config.js --env.mode production"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.10.4",

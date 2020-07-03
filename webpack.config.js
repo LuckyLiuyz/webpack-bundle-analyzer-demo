@@ -5,12 +5,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-// 获取 `npm run ** `中携带的参数
+// 获取环境变量
 const { env } = process;
-console.log({ env });
-module.exports = () => {
+// console.log({ env });
+
+/**
+ * @function webpack 配置
+ * @param {*} params 
+ * @param {*} argv 
+ * 
+ * 1、通过两种方式获取` npm run *** `对应的命令中的参数（如 --env.mode=development、annlyz=false）;
+ * 其中，annlyz=false 是通过 `cross-env` 来设置跨平台的环境变量，最终通过 process.env获取设置的环境变量；
+ * 而--env.mode=development，是作为webpack的执行参数，相关参数会直接注入到module.exports=(params, argv){}的入参中。
+ * 
+ * 
+ */
+module.exports = (params, argv) => {
+  console.log({ params });
+
   let config = {
-    mode: 'development',
+    mode: params.mode, // 读取命令中的参数"build": "cross-env analyz=false webpack --config ./webpack.config.js --env.mode development",
     entry: __dirname + '/src/index.js',
     output: {
       filename: 'bundle.js',
@@ -69,7 +83,7 @@ module.exports = () => {
       new CleanWebpackPlugin(),
       // 用于生成 index.html
       new HtmlWebpackPlugin({
-        title: 'Ideal Webpack Develop Env',
+        title: 'webpack-bundle-analyzer-demo',
         meta: {
           viewport: 'width=device-width'
         },
@@ -78,21 +92,14 @@ module.exports = () => {
     ]
   }
 
+  // 如果执行的是`npm run analyz`命令，则追加 BundleAnalyzerPlugin 插件配置
   if (env.analyz === 'true') {
     return merge(config, {
       plugins: [
-        new CleanWebpackPlugin(),
-        // 用于生成 index.html
-        new HtmlWebpackPlugin({
-          title: 'Ideal Webpack Develop Env',
-          meta: {
-            viewport: 'width=device-width'
-          },
-          template: __dirname + '/src/index.html'
-        }),
+        // 配置参数：https://www.npmjs.com/package/webpack-bundle-analyzer
         new BundleAnalyzerPlugin(
           {
-            analyzerMode: 'server',
+            analyzerMode: 'static',
             analyzerHost: '127.0.0.1',
             analyzerPort: 8889,
             reportFilename: 'report.html',

@@ -8,9 +8,6 @@ class APP extends React.PureComponent {
 
     constructor (props) {
         super(props);
-        this.state = {
-            count: 1
-        }
     }
 
     render () {
