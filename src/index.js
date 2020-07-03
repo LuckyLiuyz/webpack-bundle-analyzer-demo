@@ -12,7 +12,7 @@ class APP extends React.PureComponent {
 
     render () {
         return (
-            <div>
+            <div className="app">
                 <Example />
                 <LodashCom />
                 <EchartsCom />
