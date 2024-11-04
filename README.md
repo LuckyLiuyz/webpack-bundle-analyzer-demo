@@ -15,3 +15,6 @@
 ![blockchain](https://github.com/Lucky-LYZ/webpack-bundle-analyzer-demo/blob/master/src/img/webpack-bundle-analyzer%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E5%9B%BE.png "webpack-bundle-analyzer分析结果图")
 
 ## 其他
+### source-map-explorer分析打包产物
+使用source-map-explorer工具，可以基于打包生成的产物，执行 ‘source-map-explorer bundle.min.js’ 命令进行分析产物构成。
+详情参加：[link](https://www.npmjs.com/package/source-map-explorer)
