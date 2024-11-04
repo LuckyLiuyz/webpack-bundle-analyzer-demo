@@ -17,4 +17,4 @@
 ## 其他
 ### source-map-explorer分析打包产物
 使用source-map-explorer工具，可以基于打包生成的产物，执行 ‘source-map-explorer bundle.min.js’ 命令进行分析产物构成。
-详情参加：[link](https://www.npmjs.com/package/source-map-explorer)
+详情参加：[source-map-explorer](https://www.npmjs.com/package/source-map-explorer)
